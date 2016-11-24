@@ -301,25 +301,21 @@ public class ContentProviderPlugin extends CordovaPlugin {
 			inactive = " ";
 		}
 		
-		
-
 		ContentValues values = new ContentValues();
 		values.put("drv_id", drv_id);
-	    values.put("carrier_id", carrier_id);
+		values.put("carrier_id", carrier_id);
 		values.put("dt", dt);
 		values.put("status", status);
 		values.put("inactive", inactive);
 		values.put("location", location);
 
 		// Insert Data
-                String id ="59";
-		// cordova.getActivity().getContentResolver().update(contentUri, values);
-		cordova.getActivity().getContentResolver().update(contentUri, values, "id=?",new String[]{id} );
+		cordova.getActivity().getContentResolver().insert(contentUri, values);
 		JSONArray resultJSONArray = new JSONArray();
 
 		JSONObject jo = new JSONObject();
 		try{
-		jo.put("return","hello");
+		jo.put("return","true");
 		}catch(JSONException e){
 			jo = null;
 		}
