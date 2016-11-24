@@ -302,7 +302,6 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		}
 		
 		
-		
 
 		ContentValues values = new ContentValues();
 		values.put("drv_id", drv_id);
@@ -319,7 +318,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 
 		JSONObject jo = new JSONObject();
 		try{
-		jo.put("return","true");
+		jo.put("return","hello");
 		}catch(JSONException e){
 			jo = null;
 		}
