@@ -189,4 +189,127 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		resultJSONArray.put(jo);
 		callback.success(resultJSONArray);
 	}
+	
+	///////////////////////////////////////////////////////////////////////////////////////////////update
+	private void updateDutyStatus(JSONObject queryArgs, CallbackContext callback) {
+		Uri contentUri = null;
+		String carrier_id = "";
+		String drv_id = "";
+		String dt = "";
+		String location = "";
+		String status = "";
+		String inactive = "";
+		
+		
+
+		try {
+			if (!queryArgs.isNull("contentUri")) {
+				contentUri = Uri.parse(queryArgs.getString("contentUri"));
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		} catch (JSONException e) {
+			callback.error(WRONG_PARAMS);
+			return;
+		}
+
+		if (contentUri == null) {
+			callback.error(WRONG_PARAMS);
+			return;
+		}
+		//carrier_id
+		try{
+			if (!queryArgs.isNull("carrier_id")) {
+				carrier_id = queryArgs.getString("carrier_id");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			carrier_id = " ";
+		}
+		//drv_id
+		try{
+			if (!queryArgs.isNull("drv_id")) {
+				drv_id = queryArgs.getString("drv_id");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			drv_id = " ";
+		}
+		//status
+		try{
+			if (!queryArgs.isNull("status")) {
+				status = queryArgs.getString("status");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			status = " ";
+		}
+		//dt
+		try{
+			if (!queryArgs.isNull("dt")) {
+				dt = queryArgs.getString("dt");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			dt = " ";
+		}
+		
+		//location
+		try{
+			if (!queryArgs.isNull("location")) {
+				location = queryArgs.getString("location");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			location = " ";
+		}
+		
+		//inactive
+		try{
+			if (!queryArgs.isNull("inactive")) {
+				inactive = queryArgs.getString("inactive");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			inactive = " ";
+		}
+		
+		
+		
+
+		ContentValues values = new ContentValues();
+		values.put("drv_id", drv_id);
+	    values.put("carrier_id", carrier_id);
+		values.put("dt", dt);
+		values.put("status", status);
+		values.put("inactive", inactive);
+		values.put("location", location);
+
+		// Insert Data
+
+		cordova.getActivity().getContentResolver().insert(contentUri, values);
+		JSONArray resultJSONArray = new JSONArray();
+
+		JSONObject jo = new JSONObject();
+		try{
+		jo.put("return","true");
+		}catch(JSONException e){
+			jo = null;
+		}
+		resultJSONArray.put(jo);
+		callback.success(resultJSONArray);
+	}
 }
