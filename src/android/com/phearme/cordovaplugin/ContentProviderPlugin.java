@@ -43,6 +43,20 @@ public class ContentProviderPlugin extends CordovaPlugin {
 			});
 			return true;
 		}
+		if (action.equals("updateDutyStatus")) {
+			final JSONObject queryArgs = methodArgs.getJSONObject(0);
+			if (queryArgs == null) {
+				callback.error(WRONG_PARAMS);
+				return false;
+			}
+			cordova.getThreadPool().execute(new Runnable() {
+				public void run() {
+					updateDutyStatus(queryArgs, callback);
+				}
+			});
+			return true;
+		}
+
 		return false;
 	}
 
