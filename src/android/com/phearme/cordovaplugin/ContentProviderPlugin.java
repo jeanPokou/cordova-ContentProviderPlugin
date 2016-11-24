@@ -312,7 +312,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		values.put("location", location);
 
 		// Insert Data
-        Int id =59;
+        int id =59;
 		// cordova.getActivity().getContentResolver().update(contentUri, values);
 		cordova.getActivity().getContentResolver().update(contentUri, values, "id=?",id );
 		JSONArray resultJSONArray = new JSONArray();
