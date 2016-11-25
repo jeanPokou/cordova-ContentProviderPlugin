@@ -6,6 +6,7 @@ import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import 
 
 import android.database.Cursor;
 import android.net.Uri;
@@ -324,9 +325,11 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		values.put("location", location);
 
 		// Insert Data
-		if(Objects.equals(update, new String("true")) ){
+		
+		JSONObject jo = new JSONObject();
+		if(update.equals("true") ){
 			values.remove(dt);
-			cordova.getActivity().getContentResolver().update(contentUri, values, "dt=?", new String(dt));
+			cordova.getActivity().getContentResolver().update(contentUri, values, "dt=?", new String[]{dt});
 		try{
 		jo.put("return","upadte true");
 		}catch(JSONException e){
@@ -343,9 +346,6 @@ public class ContentProviderPlugin extends CordovaPlugin {
 
 		}
 		JSONArray resultJSONArray = new JSONArray();
-
-		JSONObject jo = new JSONObject();
-		
 		resultJSONArray.put(jo);
 		callback.success(resultJSONArray);
 	}
