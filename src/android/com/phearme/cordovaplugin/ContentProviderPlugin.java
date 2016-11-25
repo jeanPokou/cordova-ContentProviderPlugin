@@ -213,6 +213,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		String location = "";
 		String status = "";
 		String inactive = "";
+		String update = "";
 		
 		
 
@@ -232,6 +233,19 @@ public class ContentProviderPlugin extends CordovaPlugin {
 			callback.error(WRONG_PARAMS);
 			return;
 		}
+
+		// Bolean value for update or insert
+			try{
+			if (!queryArgs.isNull("update")) {
+				update  = queryArgs.getString("update");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			carrier_id = "false";
+		}
+
 		//carrier_id
 		try{
 			if (!queryArgs.isNull("carrier_id")) {
@@ -310,15 +324,28 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		values.put("location", location);
 
 		// Insert Data
-		cordova.getActivity().getContentResolver().insert(contentUri, values);
-		JSONArray resultJSONArray = new JSONArray();
-
-		JSONObject jo = new JSONObject();
+		if(Objects.equals(update, new String("true")) ){
+			values.remove(dt);
+			cordova.getActivity().getContentResolver().update(contentUri, values, "dt=?", new String(dt));
 		try{
-		jo.put("return","true");
+		jo.put("return","upadte true");
 		}catch(JSONException e){
 			jo = null;
 		}
+		}
+		else{
+			cordova.getActivity().getContentResolver().insert(contentUri, values);
+		try{
+		jo.put("return","insertion true");
+		}catch(JSONException e){
+			jo = null;
+		}
+
+		}
+		JSONArray resultJSONArray = new JSONArray();
+
+		JSONObject jo = new JSONObject();
+		
 		resultJSONArray.put(jo);
 		callback.success(resultJSONArray);
 	}
