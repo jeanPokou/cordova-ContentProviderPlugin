@@ -327,7 +327,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		JSONObject jo = new JSONObject();
 		if(update.equals("true") ){
 			// cordova.getActivity().getContentResolver().update(contentUri, values, "dt=?", new String[]{dt});
-		cordova.getActivity().getContentResolver().update(contentUri, values, "dt=?", new String[]{dt});
+		cordova.getActivity().getContentResolver().update(contentUri, values, "dt = ?", new String[]{dt});
 		try{
 		jo.put("return","upadte true");
 		}catch(JSONException e){
