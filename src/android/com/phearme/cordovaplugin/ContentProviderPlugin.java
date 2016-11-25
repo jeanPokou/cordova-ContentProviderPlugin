@@ -318,7 +318,6 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		ContentValues values = new ContentValues();
 		values.put("drv_id", drv_id);
 		values.put("carrier_id", carrier_id);
-		values.put("dt", dt);
 		values.put("status", status);
 		values.put("inactive", inactive);
 		values.put("location", location);
@@ -327,8 +326,8 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		
 		JSONObject jo = new JSONObject();
 		if(update.equals("true") ){
-			values.remove(dt);
-			cordova.getActivity().getContentResolver().update(contentUri, values, "dt=?", new String[]{dt});
+			// cordova.getActivity().getContentResolver().update(contentUri, values, "dt=?", new String[]{dt});
+		cordova.getActivity().getContentResolver().update(contentUri, values, "dt=?", new String[]{dt});
 		try{
 		jo.put("return","upadte true");
 		}catch(JSONException e){
@@ -336,6 +335,8 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		}
 		}
 		else{
+
+		    values.put("dt", dt);
 			cordova.getActivity().getContentResolver().insert(contentUri, values);
 		try{
 		jo.put("return","insertion true");
