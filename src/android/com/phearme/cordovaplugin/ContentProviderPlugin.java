@@ -209,6 +209,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
     private void updateInsertStatus(JSONObject queryArgs, CallbackContext callback) {
 
         Uri contentUri = null;
+	String update = " ";
         String dateTime = " ";
         try {
             if (!queryArgs.isNull("dateTime")) {
@@ -510,12 +511,14 @@ public class ContentProviderPlugin extends CordovaPlugin {
         values.put("origin", origin);
         values.put("indication", indication);
         values.put("sensorFault", sensorFault);
-        // Insert Data
+       
+	
+	// Insert Data
 
         JSONObject jo = new JSONObject();
         if (update.equals("true")) {
             // cordova.getActivity().getContentResolver().update(contentUri, values, "dt=?", new String[]{dt});
-            cordova.getActivity().getContentResolver().update(contentUri, values, "dateTime= ?", new String[]{dt});
+            cordova.getActivity().getContentResolver().update(contentUri, values, "dateTime= ?", new String[]{dateTime});
             try {
                 jo.put("return", "upadte true");
             } catch (JSONException e) {
