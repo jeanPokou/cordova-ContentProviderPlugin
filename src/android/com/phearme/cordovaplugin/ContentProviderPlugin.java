@@ -1,9 +1,3 @@
-/**
- * Created by User1 on 2/2/2017.
- */
-
-public class dd {
-}
 package com.phearme.cordovaplugin;
 
         import org.apache.cordova.CallbackContext;
