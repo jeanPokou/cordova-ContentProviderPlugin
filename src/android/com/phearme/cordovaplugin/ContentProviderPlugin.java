@@ -212,7 +212,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String dateTime = " ";
         try {
             if (!queryArgs.isNull("dateTime")) {
-                carrier_id = queryArgs.getString("dateTime");
+                 dateTime= queryArgs.getString("dateTime");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -224,7 +224,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String driverId = " ";
         try {
             if (!queryArgs.isNull("driverId")) {
-                carrier_id = queryArgs.getString("driverId");
+                driverId= queryArgs.getString("driverId");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -237,7 +237,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String trailer1Id = " ";
         try {
             if (!queryArgs.isNull("trailer1Id")) {
-                carrier_id = queryArgs.getString("trailer1Id");
+                trailer1Id= queryArgs.getString("trailer1Id");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -248,7 +248,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String trailer2Id = " ";
         try {
             if (!queryArgs.isNull("trailer2Id")) {
-                carrier_id = queryArgs.getString("trailer2Id");
+                trailer2Id= queryArgs.getString("trailer2Id");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -260,7 +260,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String statusId = " ";
         try {
             if (!queryArgs.isNull("statusId")) {
-                carrier_id = queryArgs.getString("statusId");
+                statusId= queryArgs.getString("statusId");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -271,7 +271,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String latitude = " ";
         try {
             if (!queryArgs.isNull("latitude")) {
-                carrier_id = queryArgs.getString("latitude");
+                latitude= queryArgs.getString("latitude");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -282,7 +282,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String longitude = " ";
         try {
             if (!queryArgs.isNull("longitude")) {
-                carrier_id = queryArgs.getString("longitude");
+                longitude= queryArgs.getString("longitude");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -294,7 +294,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String location = " ";
         try {
             if (!queryArgs.isNull("location")) {
-                carrier_id = queryArgs.getString("location");
+                location= queryArgs.getString("location");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -305,7 +305,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String remarks = " ";
         try {
             if (!queryArgs.isNull("remarks")) {
-                carrier_id = queryArgs.getString("remarks");
+                remarks= queryArgs.getString("remarks");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -316,7 +316,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String verified = " ";
         try {
             if (!queryArgs.isNull("verified")) {
-                carrier_id = queryArgs.getString("verified");
+                verified= queryArgs.getString("verified");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -327,7 +327,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String active = " ";
         try {
             if (!queryArgs.isNull("active")) {
-                carrier_id = queryArgs.getString("active");
+                active= queryArgs.getString("active");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -338,7 +338,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String shipping = " ";
         try {
             if (!queryArgs.isNull("shipping")) {
-                carrier_id = queryArgs.getString("shipping");
+                shipping= queryArgs.getString("shipping");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -349,7 +349,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String shipper = " ";
         try {
             if (!queryArgs.isNull("shipper")) {
-                carrier_id = queryArgs.getString("shipper");
+                shipper= queryArgs.getString("shipper");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -360,7 +360,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String commodity = " ";
         try {
             if (!queryArgs.isNull("commodity")) {
-                carrier_id = queryArgs.getString("commodity");
+                commodity= queryArgs.getString("commodity");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -371,7 +371,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String personalMileage = " ";
         try {
             if (!queryArgs.isNull("personalMileage")) {
-                carrier_id = queryArgs.getString("personalMileage");
+                personalMileage= queryArgs.getString("personalMileage");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -382,7 +382,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String cdnCycle = " ";
         try {
             if (!queryArgs.isNull("cdnCycle")) {
-                carrier_id = queryArgs.getString("cdnCycle");
+                cdnCycle= queryArgs.getString("cdnCycle");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -393,7 +393,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String usaCycle = " ";
         try {
             if (!queryArgs.isNull("usaCycle")) {
-                carrier_id = queryArgs.getString("usaCycle");
+                usaCycle= queryArgs.getString("usaCycle");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -404,7 +404,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String deferral = " ";
         try {
             if (!queryArgs.isNull("deferral")) {
-                carrier_id = queryArgs.getString("deferral");
+                deferral= queryArgs.getString("deferral");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -415,7 +415,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String ctpatsealno = " ";
         try {
             if (!queryArgs.isNull("ctpatsealno")) {
-                carrier_id = queryArgs.getString("ctpatsealno");
+                ctpatsealno= queryArgs.getString("ctpatsealno");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -426,7 +426,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String origin = " ";
         try {
             if (!queryArgs.isNull("origin")) {
-                carrier_id = queryArgs.getString("origin");
+                origin= queryArgs.getString("origin");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -437,7 +437,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String indication = " ";
         try {
             if (!queryArgs.isNull("indication")) {
-                carrier_id = queryArgs.getString("indication");
+                indication= queryArgs.getString("indication");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
@@ -448,7 +448,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String sensorFault = " ";
         try {
             if (!queryArgs.isNull("sensorFault")) {
-                carrier_id = queryArgs.getString("sensorFault");
+                sensorFault= queryArgs.getString("sensorFault");
             } else {
                 callback.error(WRONG_PARAMS);
                 return;
