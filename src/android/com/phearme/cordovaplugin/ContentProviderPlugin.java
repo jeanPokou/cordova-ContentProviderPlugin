@@ -16,7 +16,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		final JSONArray methodArgs = args;
 		final CallbackContext callback = callbackContext;
-		
+
 		if (action.equals("query")) {
 			final JSONObject queryArgs = methodArgs.getJSONObject(0);
 			if (queryArgs == null) {
@@ -147,8 +147,8 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		Uri contentUri = null;
 		String strValue = "";
 		String strRegister = "";
-		
-		
+
+
 
 		try {
 			if (!queryArgs.isNull("contentUri")) {
@@ -203,7 +203,343 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		resultJSONArray.put(jo);
 		callback.success(resultJSONArray);
 	}
-	
+
+
+	///////////////////////////////////////////////////////////////////////////////////////////////update
+	private void updateInsertStatus(JSONObject queryArgs, CallbackContext callback) {
+    String id;
+	 String dateTime;
+		try{
+			if (!queryArgs.isNull("dateTime")) {
+				carrier_id = queryArgs.getString("dateTime");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			dateTime = " ";
+		}
+
+	 String driverId;
+		try{
+			if (!queryArgs.isNull("driverId")) {
+				carrier_id = queryArgs.getString("driverId");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			 driverId= " ";
+		}
+
+
+
+	 String trailer1Id;
+      try{
+			if (!queryArgs.isNull("trailer1Id")) {
+				carrier_id = queryArgs.getString("trailer1Id");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			 trailer1Id= " ";
+		}
+	 String trailer2Id;
+      try{
+			if (!queryArgs.isNull("trailer2Id")) {
+				carrier_id = queryArgs.getString("trailer2Id");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			 trailer2Id= " ";
+		}
+
+	 String statusId;
+      try{
+			if (!queryArgs.isNull("statusId")) {
+				carrier_id = queryArgs.getString("statusId");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			 statusId= " ";
+		}
+	 String latitude;
+      try{
+			if (!queryArgs.isNull("latitude")) {
+				carrier_id = queryArgs.getString("latitude");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			latitude= " ";
+		}
+	 String longitude;
+      try{
+			if (!queryArgs.isNull("longitude")) {
+				carrier_id = queryArgs.getString("longitude");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			longitude= " ";
+		}
+
+	 String location;
+      try{
+			if (!queryArgs.isNull("location")) {
+				carrier_id = queryArgs.getString("location");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			location= " ";
+		}
+	 String remarks;
+ try{
+			if (!queryArgs.isNull("remarks")) {
+				carrier_id = queryArgs.getString("remarks");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			remarks= " ";
+		}
+	 String verified;
+ try{
+			if (!queryArgs.isNull("verified")) {
+				carrier_id = queryArgs.getString("verified");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			verified= " ";
+		}
+	 String active;
+try{
+			if (!queryArgs.isNull("active")) {
+				carrier_id = queryArgs.getString("active");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			active= " ";
+		}
+	 String shipping;
+  try{
+			if (!queryArgs.isNull("shipping")) {
+				carrier_id = queryArgs.getString("shipping");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			shipping= " ";
+		}
+	 String shipper;
+   try{
+			if (!queryArgs.isNull("shipper")) {
+				carrier_id = queryArgs.getString("shipper");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			shipper= " ";
+		}
+	 String commodity;
+try{
+			if (!queryArgs.isNull("commodity")) {
+				carrier_id = queryArgs.getString("commodity");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			commodity= " ";
+		}
+	 String personalMileage;
+try{
+			if (!queryArgs.isNull("personalMileage")) {
+				carrier_id = queryArgs.getString("personalMileage");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			personalMileage= " ";
+		}
+	 String cdnCycle;
+try{
+			if (!queryArgs.isNull("cdnCycle")) {
+				carrier_id = queryArgs.getString("cdnCycle");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			cdnCycle= " ";
+		}
+	 String usaCycle;
+try{
+			if (!queryArgs.isNull("usaCycle")) {
+				carrier_id = queryArgs.getString("usaCycle");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			usaCycle= " ";
+		}
+	 String deferral;
+try{
+			if (!queryArgs.isNull("deferral")) {
+				carrier_id = queryArgs.getString("deferral");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			deferral= " ";
+		}
+	 String ctpatsealno;
+try{
+			if (!queryArgs.isNull("ctpatsealno")) {
+				carrier_id = queryArgs.getString("ctpatsealno");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			ctpatsealno= " ";
+		}
+	 String origin;
+try{
+			if (!queryArgs.isNull("origin")) {
+				carrier_id = queryArgs.getString("origin");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			origin= " ";
+		}
+	 String indication;
+try{
+			if (!queryArgs.isNull("indication")) {
+				carrier_id = queryArgs.getString("indication");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			indication= " ";
+		}
+	 String sensorFault;
+try{
+			if (!queryArgs.isNull("sensorFault")) {
+				carrier_id = queryArgs.getString("sensorFault");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+			sensorFault= " ";
+		}
+
+
+		try {
+			if (!queryArgs.isNull("contentUri")) {
+				contentUri = Uri.parse(queryArgs.getString("contentUri"));
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		} catch (JSONException e) {
+			callback.error(WRONG_PARAMS);
+			return;
+		}
+
+		if (contentUri == null) {
+			callback.error(WRONG_PARAMS);
+			return;
+		}
+	// Bolean value for update or insert
+			try{
+			if (!queryArgs.isNull("update")) {
+				update  = queryArgs.getString("update");
+			} else {
+				callback.error(WRONG_PARAMS);
+				return;
+			}
+		}catch (JSONException e) {
+		}
+
+	ContentValues values = new ContentValues();
+    values.put("dateTime",dateTime);
+    values.put("driverId",driverId);
+    values.put("trailer1Id",trailer1Id);
+    values.put("trailer2Id",trailer2Id);
+    values.put("statusId",statusId);
+    values.put("latitude",latitude);
+    values.put("longitude",longitude);
+    values.put("location",location);
+    values.put("remarks",remarks);
+    values.put("verified",verified);
+    values.put("active",active);
+    values.put("shipping",shipping);
+    values.put("shipper",shipper);
+    values.put("commodity",commodity);
+    values.put("personalMileage",personalMileage);
+    values.put("cdnCycle",cdnCycle);
+    values.put("usaCycle",usaCycle);
+    values.put("deferral",deferral);
+    values.put("ctpatsealno",ctpatsealno);
+    values.put("origin",origin);
+    values.put("indication",indication);
+    values.put("sensorFault",sensorFault);
+	// Insert Data
+
+		JSONObject jo = new JSONObject();
+		if(update.equals("true") ){
+			// cordova.getActivity().getContentResolver().update(contentUri, values, "dt=?", new String[]{dt});
+		cordova.getActivity().getContentResolver().update(contentUri, values, "dt = ?", new String[]{dt});
+		try{
+		jo.put("return","upadte true");
+		}catch(JSONException e){
+			jo = null;
+		}
+		}
+		else{
+
+		    values.put("dt", dt);
+			cordova.getActivity().getContentResolver().insert(contentUri, values);
+		try{
+		jo.put("return","insertion true");
+		}catch(JSONException e){
+			jo = null;
+		}
+
+		}
+		JSONArray resultJSONArray = new JSONArray();
+		resultJSONArray.put(jo);
+		callback.success(resultJSONArray);
+	}
+
+
+		}
+
+
 	///////////////////////////////////////////////////////////////////////////////////////////////update
 	private void updateDutyStatus(JSONObject queryArgs, CallbackContext callback) {
 		Uri contentUri = null;
@@ -214,8 +550,8 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		String status = "";
 		String inactive = "";
 		String update = "";
-		
-		
+
+
 
 		try {
 			if (!queryArgs.isNull("contentUri")) {
@@ -290,7 +626,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		}catch (JSONException e) {
 			dt = " ";
 		}
-		
+
 		//location
 		try{
 			if (!queryArgs.isNull("location")) {
@@ -302,7 +638,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		}catch (JSONException e) {
 			location = " ";
 		}
-		
+
 		//inactive
 		try{
 			if (!queryArgs.isNull("inactive")) {
@@ -314,7 +650,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		}catch (JSONException e) {
 			inactive = " ";
 		}
-		
+
 		ContentValues values = new ContentValues();
 		values.put("drv_id", drv_id);
 		values.put("carrier_id", carrier_id);
@@ -323,7 +659,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		values.put("location", location);
 
 		// Insert Data
-		
+
 		JSONObject jo = new JSONObject();
 		if(update.equals("true") ){
 			// cordova.getActivity().getContentResolver().update(contentUri, values, "dt=?", new String[]{dt});
