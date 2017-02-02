@@ -207,8 +207,9 @@ public class ContentProviderPlugin extends CordovaPlugin {
 
 	///////////////////////////////////////////////////////////////////////////////////////////////update
 	private void updateInsertStatus(JSONObject queryArgs, CallbackContext callback) {
-    String id;
-	 String dateTime;
+
+		Uri contentUri = null;
+	 String dateTime=" ";
 		try{
 			if (!queryArgs.isNull("dateTime")) {
 				carrier_id = queryArgs.getString("dateTime");
@@ -220,7 +221,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 			dateTime = " ";
 		}
 
-	 String driverId;
+	 String driverId = " ";
 		try{
 			if (!queryArgs.isNull("driverId")) {
 				carrier_id = queryArgs.getString("driverId");
@@ -234,7 +235,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 
 
 
-	 String trailer1Id;
+	 String trailer1Id=" ";
       try{
 			if (!queryArgs.isNull("trailer1Id")) {
 				carrier_id = queryArgs.getString("trailer1Id");
@@ -245,7 +246,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		}catch (JSONException e) {
 			 trailer1Id= " ";
 		}
-	 String trailer2Id;
+	 String trailer2Id=" ";
       try{
 			if (!queryArgs.isNull("trailer2Id")) {
 				carrier_id = queryArgs.getString("trailer2Id");
@@ -257,7 +258,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 			 trailer2Id= " ";
 		}
 
-	 String statusId;
+	 String statusId=" ";
       try{
 			if (!queryArgs.isNull("statusId")) {
 				carrier_id = queryArgs.getString("statusId");
@@ -268,7 +269,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		}catch (JSONException e) {
 			 statusId= " ";
 		}
-	 String latitude;
+	 String latitude=" ";
       try{
 			if (!queryArgs.isNull("latitude")) {
 				carrier_id = queryArgs.getString("latitude");
@@ -279,7 +280,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		}catch (JSONException e) {
 			latitude= " ";
 		}
-	 String longitude;
+	 String longitude=" ";
       try{
 			if (!queryArgs.isNull("longitude")) {
 				carrier_id = queryArgs.getString("longitude");
@@ -291,7 +292,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 			longitude= " ";
 		}
 
-	 String location;
+	 String location=" ";
       try{
 			if (!queryArgs.isNull("location")) {
 				carrier_id = queryArgs.getString("location");
@@ -302,7 +303,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		}catch (JSONException e) {
 			location= " ";
 		}
-	 String remarks;
+	 String remarks=" ";
  try{
 			if (!queryArgs.isNull("remarks")) {
 				carrier_id = queryArgs.getString("remarks");
@@ -313,7 +314,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		}catch (JSONException e) {
 			remarks= " ";
 		}
-	 String verified;
+	 String verified=" ";
  try{
 			if (!queryArgs.isNull("verified")) {
 				carrier_id = queryArgs.getString("verified");
@@ -324,7 +325,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 		}catch (JSONException e) {
 			verified= " ";
 		}
-	 String active;
+	 String active=" ";
 try{
 			if (!queryArgs.isNull("active")) {
 				carrier_id = queryArgs.getString("active");
@@ -335,7 +336,7 @@ try{
 		}catch (JSONException e) {
 			active= " ";
 		}
-	 String shipping;
+	 String shipping=" ";
   try{
 			if (!queryArgs.isNull("shipping")) {
 				carrier_id = queryArgs.getString("shipping");
@@ -346,7 +347,7 @@ try{
 		}catch (JSONException e) {
 			shipping= " ";
 		}
-	 String shipper;
+	 String shipper=" ";
    try{
 			if (!queryArgs.isNull("shipper")) {
 				carrier_id = queryArgs.getString("shipper");
@@ -357,7 +358,7 @@ try{
 		}catch (JSONException e) {
 			shipper= " ";
 		}
-	 String commodity;
+	 String commodity=" ";
 try{
 			if (!queryArgs.isNull("commodity")) {
 				carrier_id = queryArgs.getString("commodity");
@@ -368,7 +369,7 @@ try{
 		}catch (JSONException e) {
 			commodity= " ";
 		}
-	 String personalMileage;
+	 String personalMileage=" ";
 try{
 			if (!queryArgs.isNull("personalMileage")) {
 				carrier_id = queryArgs.getString("personalMileage");
@@ -379,7 +380,7 @@ try{
 		}catch (JSONException e) {
 			personalMileage= " ";
 		}
-	 String cdnCycle;
+	 String cdnCycle=" ";
 try{
 			if (!queryArgs.isNull("cdnCycle")) {
 				carrier_id = queryArgs.getString("cdnCycle");
@@ -390,7 +391,7 @@ try{
 		}catch (JSONException e) {
 			cdnCycle= " ";
 		}
-	 String usaCycle;
+	 String usaCycle=" ";
 try{
 			if (!queryArgs.isNull("usaCycle")) {
 				carrier_id = queryArgs.getString("usaCycle");
@@ -401,7 +402,7 @@ try{
 		}catch (JSONException e) {
 			usaCycle= " ";
 		}
-	 String deferral;
+	 String deferral=" ";
 try{
 			if (!queryArgs.isNull("deferral")) {
 				carrier_id = queryArgs.getString("deferral");
@@ -412,7 +413,7 @@ try{
 		}catch (JSONException e) {
 			deferral= " ";
 		}
-	 String ctpatsealno;
+	 String ctpatsealno=" ";
 try{
 			if (!queryArgs.isNull("ctpatsealno")) {
 				carrier_id = queryArgs.getString("ctpatsealno");
@@ -423,7 +424,7 @@ try{
 		}catch (JSONException e) {
 			ctpatsealno= " ";
 		}
-	 String origin;
+	 String origin=" ";
 try{
 			if (!queryArgs.isNull("origin")) {
 				carrier_id = queryArgs.getString("origin");
@@ -434,7 +435,7 @@ try{
 		}catch (JSONException e) {
 			origin= " ";
 		}
-	 String indication;
+	 String indication=" ";
 try{
 			if (!queryArgs.isNull("indication")) {
 				carrier_id = queryArgs.getString("indication");
@@ -445,7 +446,7 @@ try{
 		}catch (JSONException e) {
 			indication= " ";
 		}
-	 String sensorFault;
+	 String sensorFault=" ";
 try{
 			if (!queryArgs.isNull("sensorFault")) {
 				carrier_id = queryArgs.getString("sensorFault");
@@ -513,7 +514,7 @@ try{
 		JSONObject jo = new JSONObject();
 		if(update.equals("true") ){
 			// cordova.getActivity().getContentResolver().update(contentUri, values, "dt=?", new String[]{dt});
-		cordova.getActivity().getContentResolver().update(contentUri, values, "dt = ?", new String[]{dt});
+		cordova.getActivity().getContentResolver().update(contentUri, values, "dateTime= ?", new String[]{dt});
 		try{
 		jo.put("return","upadte true");
 		}catch(JSONException e){
@@ -522,7 +523,7 @@ try{
 		}
 		else{
 
-		    values.put("dt", dt);
+		    // values.put("dt", dt);
 			cordova.getActivity().getContentResolver().insert(contentUri, values);
 		try{
 		jo.put("return","insertion true");
