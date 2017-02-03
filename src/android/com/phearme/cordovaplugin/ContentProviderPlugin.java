@@ -43,7 +43,22 @@ public class ContentProviderPlugin extends CordovaPlugin {
             });
             return true;
         }
+
         if (action.equals("updateDutyStatus")) {
+            final JSONObject queryArgs = methodArgs.getJSONObject(0);
+            if (queryArgs == null) {
+                callback.error(WRONG_PARAMS);
+                return false;
+            }
+            cordova.getThreadPool().execute(new Runnable() {
+                public void run() {
+                    updateDutyStatus(queryArgs, callback);
+                }
+            });
+            return true;
+        }
+
+        if (action.equals("updateInsertStatus")) {
             final JSONObject queryArgs = methodArgs.getJSONObject(0);
             if (queryArgs == null) {
                 callback.error(WRONG_PARAMS);
@@ -516,15 +531,15 @@ public class ContentProviderPlugin extends CordovaPlugin {
 	// Insert Data
 
         JSONObject jo = new JSONObject();
-        if (update.equals("true")) {
-            // cordova.getActivity().getContentResolver().update(contentUri, values, "dt=?", new String[]{dt});
-            cordova.getActivity().getContentResolver().update(contentUri, values, "dateTime= ?", new String[]{dateTime});
-            try {
-                jo.put("return", "upadte true");
-            } catch (JSONException e) {
-                jo = null;
-            }
-        } else {
+        // if (update.equals("true")) {
+        //     // cordova.getActivity().getContentResolver().update(contentUri, values, "dt=?", new String[]{dt});
+        //     cordova.getActivity().getContentResolver().update(contentUri, values, "dateTime= ?", new String[]{dateTime});
+        //     try {
+        //         jo.put("return", "upadte true");
+        //     } catch (JSONException e) {
+        //         jo = null;
+        //     }
+        // } else {
 
             // values.put("dt", dt);
             cordova.getActivity().getContentResolver().insert(contentUri, values);
@@ -534,7 +549,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
                 jo = null;
             }
 
-        }
+        // }
         JSONArray resultJSONArray = new JSONArray();
         resultJSONArray.put(jo);
         callback.success(resultJSONArray);
