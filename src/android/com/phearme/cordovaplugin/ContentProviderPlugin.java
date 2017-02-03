@@ -66,7 +66,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             }
             cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
-                    updateDutyStatus(queryArgs, callback);
+                    updateInsertStatus(queryArgs, callback);
                 }
             });
             return true;
@@ -487,7 +487,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         }
 
         if (contentUri == null) {
-            callback.error(WRONG_PARAMS);
+            callback.error(WRONG_PARAMS + " uri is null");
             return;
         }
         // Bolean value for update or insert
