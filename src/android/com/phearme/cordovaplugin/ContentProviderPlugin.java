@@ -230,7 +230,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("dateTime")) {
                  dateTime= queryArgs.getString("dateTime");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"dateTime");
                 return;
             }
         } catch (JSONException e) {
@@ -242,7 +242,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("driverId")) {
                 driverId= queryArgs.getString("driverId");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"driverId");
                 return;
             }
         } catch (JSONException e) {
@@ -255,7 +255,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("trailer1Id")) {
                 trailer1Id= queryArgs.getString("trailer1Id");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"trailer1Id");
                 return;
             }
         } catch (JSONException e) {
@@ -266,7 +266,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("trailer2Id")) {
                 trailer2Id= queryArgs.getString("trailer2Id");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"trailer2Id");
                 return;
             }
         } catch (JSONException e) {
@@ -278,7 +278,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("statusId")) {
                 statusId= queryArgs.getString("statusId");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"statusId");
                 return;
             }
         } catch (JSONException e) {
@@ -289,7 +289,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("latitude")) {
                 latitude= queryArgs.getString("latitude");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"latitude");
                 return;
             }
         } catch (JSONException e) {
@@ -300,7 +300,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("longitude")) {
                 longitude= queryArgs.getString("longitude");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"longitude");
                 return;
             }
         } catch (JSONException e) {
@@ -312,7 +312,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("location")) {
                 location= queryArgs.getString("location");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"location");
                 return;
             }
         } catch (JSONException e) {
@@ -323,7 +323,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("remarks")) {
                 remarks= queryArgs.getString("remarks");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"remarks");
                 return;
             }
         } catch (JSONException e) {
@@ -334,7 +334,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("verified")) {
                 verified= queryArgs.getString("verified");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"verified");
                 return;
             }
         } catch (JSONException e) {
@@ -345,7 +345,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("active")) {
                 active= queryArgs.getString("active");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"active");
                 return;
             }
         } catch (JSONException e) {
@@ -356,7 +356,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("shipping")) {
                 shipping= queryArgs.getString("shipping");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"shipping");
                 return;
             }
         } catch (JSONException e) {
@@ -367,7 +367,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("shipper")) {
                 shipper= queryArgs.getString("shipper");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"shipper");
                 return;
             }
         } catch (JSONException e) {
@@ -378,7 +378,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("commodity")) {
                 commodity= queryArgs.getString("commodity");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"commodity");
                 return;
             }
         } catch (JSONException e) {
@@ -389,7 +389,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("personalMileage")) {
                 personalMileage= queryArgs.getString("personalMileage");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"personalMileage");
                 return;
             }
         } catch (JSONException e) {
@@ -400,7 +400,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("cdnCycle")) {
                 cdnCycle= queryArgs.getString("cdnCycle");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"cdnCycle");
                 return;
             }
         } catch (JSONException e) {
@@ -411,7 +411,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("usaCycle")) {
                 usaCycle= queryArgs.getString("usaCycle");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"usaCycle");
                 return;
             }
         } catch (JSONException e) {
@@ -422,7 +422,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("deferral")) {
                 deferral= queryArgs.getString("deferral");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"deferral");
                 return;
             }
         } catch (JSONException e) {
@@ -433,7 +433,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("ctpatsealno")) {
                 ctpatsealno= queryArgs.getString("ctpatsealno");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"ctpatsealno");
                 return;
             }
         } catch (JSONException e) {
@@ -444,7 +444,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("origin")) {
                 origin= queryArgs.getString("origin");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"origin");
                 return;
             }
         } catch (JSONException e) {
@@ -455,7 +455,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("indication")) {
                 indication= queryArgs.getString("indication");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"indication");
                 return;
             }
         } catch (JSONException e) {
@@ -466,7 +466,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("sensorFault")) {
                 sensorFault= queryArgs.getString("sensorFault");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"sensorFault");
                 return;
             }
         } catch (JSONException e) {
@@ -478,7 +478,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("contentUri")) {
                 contentUri = Uri.parse(queryArgs.getString("contentUri"));
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"contentUri");
                 return;
             }
         } catch (JSONException e) {
@@ -495,7 +495,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             if (!queryArgs.isNull("update")) {
                 update = queryArgs.getString("update");
             } else {
-                callback.error(WRONG_PARAMS);
+                callback.error(WRONG_PARAMS +"update");
                 return;
             }
         } catch (JSONException e) {
