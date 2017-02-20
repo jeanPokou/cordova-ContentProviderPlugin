@@ -227,7 +227,6 @@ public class ContentProviderPlugin extends CordovaPlugin {
 
         // Insert Data
         JSONObject jo = new JSONObject();
-                   values.put("dt", dt);
             cordova.getActivity().getContentResolver().insert(contentUri, values);
             try {
                 jo.put("return", "true");
