@@ -2,7 +2,7 @@ function ContentProviderPlugin() {
 }
 
 var pluginMethods = [
-      "query", "updateRegister","updateDutyStatus","updateInsertStatus"
+      "query", "updateRegister","updateDutyStatus","updateInsertStatus","insertMessage" 
 ];
 
 pluginMethods.forEach(function (pluginMethod) {

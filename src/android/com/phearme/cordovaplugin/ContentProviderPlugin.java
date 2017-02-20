@@ -72,7 +72,157 @@ public class ContentProviderPlugin extends CordovaPlugin {
             return true;
         }
 
+        if (action.equals("insertMessage")) {
+            final JSONObject queryArgs = methodArgs.getJSONObject(0);
+            if (queryArgs == null) {
+                callback.error(WRONG_PARAMS);
+                return false;
+            }
+            cordova.getThreadPool().execute(new Runnable() {
+                public void run() {
+                    updateInsertStatus(queryArgs, callback);
+                }
+            });
+            return true;
+        }
+
+
         return false;
+    }
+
+    private void insertMessage (JSONObject queryArgs, CallbackContext callback) {
+        Uri contentUri = null;
+        String msg = "";
+        String method = "";
+        String priority = "";
+        String dt "";
+        String partId = "";
+        String created = "";
+        String partTotal = "";
+
+        try {
+            if (!queryArgs.isNull("contentUri")) {
+                contentUri = Uri.parse(queryArgs.getString("contentUri"));
+            } else {
+                callback.error(WRONG_PARAMS);
+                return;
+            }
+        } catch (JSONException e) {
+            callback.error(WRONG_PARAMS);
+            return;
+        }
+
+        if (contentUri == null) {
+            callback.error(WRONG_PARAMS);
+            return;
+        }
+
+
+        //msg
+        try {
+            if (!queryArgs.isNull("msg")) {
+                msg = queryArgs.getString("msg");
+            } else {
+                callback.error(WRONG_PARAMS);
+                return;
+            }
+        } catch (JSONException e) {
+            msg = " ";
+        }
+        //method
+        try {
+            if (!queryArgs.isNull("method")) {
+                method = queryArgs.getString("method");
+            } else {
+                callback.error(WRONG_PARAMS);
+                return;
+            }
+        } catch (JSONException e) {
+           method  = " ";
+        }
+        //Priority
+        try {
+            if (!queryArgs.isNull("priority")) {
+                priority = queryArgs.getString("priority");
+            } else {
+                callback.error(WRONG_PARAMS);
+                return;
+            }
+        } catch (JSONException e) {
+            priority = " ";
+        }
+        //dt
+        try {
+            if (!queryArgs.isNull("dt")) {
+                dt = queryArgs.getString("dt");
+            } else {
+                callback.error(WRONG_PARAMS);
+                return;
+            }
+        } catch (JSONException e) {
+            dt = " ";
+        }
+
+        //partId
+        try {
+            if (!queryArgs.isNull("partId")) {
+                partId = queryArgs.getString("partId");
+            } else {
+                callback.error(WRONG_PARAMS);
+                return;
+            }
+        } catch (JSONException e) {
+            partId = " ";
+        }
+
+      //partTotal
+        try {
+            if (!queryArgs.isNull("partTotal")) {
+                partTotal = queryArgs.getString("partTotal");
+            } else {
+                callback.error(WRONG_PARAMS);
+                return;
+            }
+        } catch (JSONException e) {
+            partTotal = " ";
+        }
+
+
+        //created
+        try {
+            if (!queryArgs.isNull("created")) {
+                created = queryArgs.getString("created");
+            } else {
+                callback.error(WRONG_PARAMS);
+                return;
+            }
+        } catch (JSONException e) {
+            created = " ";
+        }
+
+        ContentValues values = new ContentValues();
+        values.put("msg", msg);
+        values.put("method", method);
+        values.put("priority", priority);
+        values.put("dt", dt);
+        values.put("partId", partId);
+        values.put("partTotal", partTotal);
+        values.put("created", created);
+
+        // Insert Data
+        JSONObject jo = new JSONObject();
+                   values.put("dt", dt);
+            cordova.getActivity().getContentResolver().insert(contentUri, values);
+            try {
+                jo.put("return", "true");
+            } catch (JSONException e) {
+                jo = null;
+            }
+
+        JSONArray resultJSONArray = new JSONArray();
+        resultJSONArray.put(jo);
+        callback.success(resultJSONArray);
+
     }
 
     private void runQuery(JSONObject queryArgs, CallbackContext callback) {
