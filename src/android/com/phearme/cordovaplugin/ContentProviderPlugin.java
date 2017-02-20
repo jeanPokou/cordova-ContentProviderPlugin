@@ -95,10 +95,11 @@ public class ContentProviderPlugin extends CordovaPlugin {
         String msg = "";
         String method = "";
         String priority = "";
-        String dt "";
+        String dt = "";
         String partId = "";
         String created = "";
         String partTotal = "";
+        String sent ="";
 
         try {
             if (!queryArgs.isNull("contentUri")) {
@@ -200,6 +201,20 @@ public class ContentProviderPlugin extends CordovaPlugin {
             created = " ";
         }
 
+      //Sent
+        try {
+            if (!queryArgs.isNull("sent")) {
+                sent = queryArgs.getString("sent");
+            } else {
+                callback.error(WRONG_PARAMS);
+                return;
+            }
+        } catch (JSONException e) {
+            sent = " ";
+        }
+
+
+
         ContentValues values = new ContentValues();
         values.put("msg", msg);
         values.put("method", method);
@@ -208,6 +223,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         values.put("partId", partId);
         values.put("partTotal", partTotal);
         values.put("created", created);
+        values.put("sent", sent);
 
         // Insert Data
         JSONObject jo = new JSONObject();
