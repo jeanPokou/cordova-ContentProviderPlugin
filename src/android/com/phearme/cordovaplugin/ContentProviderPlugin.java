@@ -80,7 +80,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             }
             cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
-                    updateInsertStatus(queryArgs, callback);
+                     insertMessage(queryArgs, callback);
                 }
             });
             return true;
