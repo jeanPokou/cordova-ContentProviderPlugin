@@ -767,6 +767,8 @@ public class ContentProviderPlugin extends CordovaPlugin {
         } catch (JSONException e) {
             id = " ";
         }
+
+        JSONObject jo = new JSONObject();
         ContentValues values = new ContentValues();
         values.put("id", id);
         cordova.getActivity().getContentResolver().delete(contentUri,  "id = ?", new String[]{id});
