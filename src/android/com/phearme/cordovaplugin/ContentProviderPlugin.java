@@ -87,6 +87,22 @@ public class ContentProviderPlugin extends CordovaPlugin {
         }
 
 
+        if (action.equals("deleteEntry")) {
+            final JSONObject queryArgs = methodArgs.getJSONObject(0);
+            if (queryArgs == null) {
+                callback.error(WRONG_PARAMS);
+                return false;
+            }
+            cordova.getThreadPool().execute(new Runnable() {
+                public void run() {
+                     deleteEntry(queryArgs, callback);
+                }
+            });
+            return true;
+        }
+
+
+
         return false;
     }
 
@@ -722,6 +738,48 @@ public class ContentProviderPlugin extends CordovaPlugin {
 
 
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////update
+    private void deleteEntry  (JSONObject queryArgs, CallbackContext callback) {
+
+        Uri contentUri = null;
+        String id= "";
+
+        try {
+            if (!queryArgs.isNull("contentUri")) {
+                contentUri = Uri.parse(queryArgs.getString("contentUri"));
+            } else {
+                callback.error(WRONG_PARAMS);
+                return;
+            }
+        } catch (JSONException e) {
+            callback.error(WRONG_PARAMS);
+            return;
+        }
+
+        //id
+        try {
+            if (!queryArgs.isNull("id")) {
+                id = queryArgs.getString("id");
+            } else {
+                callback.error(WRONG_PARAMS);
+                return;
+            }
+        } catch (JSONException e) {
+            id = " ";
+        }
+        ContentValues values = new ContentValues();
+        values.put("id", id);
+        cordova.getActivity().getContentResolver().delete(contentUri,  "id = ?", new String[]{id});
+        try {
+            jo.put("return", "delete true");
+        } catch (JSONException e) {
+            jo = null;
+        }
+
+
+
+
+    }
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////update
