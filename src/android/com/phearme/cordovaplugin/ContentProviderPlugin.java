@@ -390,11 +390,12 @@ public class ContentProviderPlugin extends CordovaPlugin {
         values.put("value", strValue);
         // updateData
 
-        cordova.getActivity().getContentResolver().update(contentUri, values, "register=?", new String[]{strRegister});
-        JSONArray resultJSONArray = new JSONArray();
-
-        JSONObject jo = new JSONObject();
         try {
+            cordova.getActivity().getContentResolver().update(contentUri, values, "register=?", new String[]{strRegister});
+            JSONArray resultJSONArray = new JSONArray();
+
+            JSONObject jo = new JSONObject();
+
             jo.put("return", "true");
         } catch (JSONException e) {
             jo = null;
