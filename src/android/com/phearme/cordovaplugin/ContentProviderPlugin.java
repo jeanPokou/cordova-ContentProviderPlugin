@@ -256,6 +256,8 @@ public class ContentProviderPlugin extends CordovaPlugin {
 
     }
 
+
+
     private void runQuery(JSONObject queryArgs, CallbackContext callback) {
         Uri contentUri = null;
         String[] projection = null;
@@ -341,6 +343,9 @@ public class ContentProviderPlugin extends CordovaPlugin {
         }
         callback.success(resultJSONArray);
     }
+
+
+
 
     ///////////////////////////////////////////////////////////////////////////////////////////////update
     private void updateRegister(JSONObject queryArgs, CallbackContext callback) {

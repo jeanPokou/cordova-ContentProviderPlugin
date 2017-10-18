@@ -1,0 +1,27 @@
+{
+  "name": "cordovacontentproviderplugin",
+  "version": "1.0.0",
+  "description": "ELD content provider plugin",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeanPokou/cordova-ContentProviderPlugin.git"
+  },
+  "keywords": [
+    "ELD",
+    "content",
+    "provider"
+  ],
+  "author": "TDSM DEV",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeanPokou/cordova-ContentProviderPlugin/issues"
+  },
+  "homepage": "https://github.com/jeanPokou/cordova-ContentProviderPlugin#readme"
+}
