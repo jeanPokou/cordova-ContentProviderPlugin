@@ -7,7 +7,7 @@ package com.phearme.cordovaplugin;
         import org.json.JSONException;
         import org.json.JSONObject;
         import android.os.RemoteException;
-
+        import android.util.Log;
         import android.database.Cursor;
         import android.net.Uri;
 
