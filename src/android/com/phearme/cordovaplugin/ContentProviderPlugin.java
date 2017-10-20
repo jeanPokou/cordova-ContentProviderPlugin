@@ -260,7 +260,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 
 
 
-        } catch(RemoteException e){
+        } catch(Exception e){
             Log.e("CP","Error getting content provider");
         }
 
@@ -356,7 +356,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         callback.success(resultJSONArray);
 
         }
-        catch(RemoteException e){
+        catch(Exception e){
             Log.e("CP","Error getting content provider");
         }
 
@@ -771,7 +771,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
         callback.success(resultJSONArray);
 
         }
-        catch(RemoteException e){
+        catch(Exception e){
             Log.e("CP","Error getting content provider");
         }
 
@@ -826,7 +826,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
 
 
         }
-        catch(RemoteException e){
+        catch(Exception e){
             Log.e("CP","Error getting content provider");
         }
 
@@ -984,7 +984,7 @@ public class ContentProviderPlugin extends CordovaPlugin {
             callback.success(resultJSONArray);
 
         }
-        catch(RemoteException e){
+        catch(Exception e){
             Log.e("CP","Error getting content provider");
         }
 
