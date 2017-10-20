@@ -243,6 +243,9 @@ public class ContentProviderPlugin extends CordovaPlugin {
 
         // Insert Data
         JSONObject jo = new JSONObject();
+
+        try {
+
             cordova.getActivity().getContentResolver().insert(contentUri, values);
             try {
                 jo.put("return", "true");
@@ -250,11 +253,17 @@ public class ContentProviderPlugin extends CordovaPlugin {
                 jo = null;
             }
 
-        JSONArray resultJSONArray = new JSONArray();
-        resultJSONArray.put(jo);
-        callback.success(resultJSONArray);
+            JSONArray resultJSONArray = new JSONArray();
+            resultJSONArray.put(jo);
+            callback.success(resultJSONArray);
 
-    }
+
+
+        } catch(RemoteException e){
+            Log.e("CP","Error getting content provider");
+        }
+
+        }
 
 
 
@@ -322,6 +331,8 @@ public class ContentProviderPlugin extends CordovaPlugin {
             sortOrder = null;
         }
 
+        try {
+
         // run query
         Cursor result = cordova.getActivity().getContentResolver().query(contentUri, projection, selection, selectionArgs, sortOrder);
         resultJSONArray = new JSONArray();
@@ -342,6 +353,13 @@ public class ContentProviderPlugin extends CordovaPlugin {
 
         }
         callback.success(resultJSONArray);
+
+        }
+        catch(RemoteException e){
+            Log.e("CP","Error getting content provider");
+        }
+
+
     }
 
 
@@ -736,6 +754,9 @@ public class ContentProviderPlugin extends CordovaPlugin {
         // } else {
 
             // values.put("dt", dt);
+
+        try {
+
             cordova.getActivity().getContentResolver().insert(contentUri, values);
             try {
                 jo.put("return", "insertion true");
@@ -747,6 +768,13 @@ public class ContentProviderPlugin extends CordovaPlugin {
         JSONArray resultJSONArray = new JSONArray();
         resultJSONArray.put(jo);
         callback.success(resultJSONArray);
+
+        }
+        catch(RemoteException e){
+            Log.e("CP","Error getting content provider");
+        }
+
+
     }
 
 
@@ -784,7 +812,10 @@ public class ContentProviderPlugin extends CordovaPlugin {
         JSONObject jo = new JSONObject();
         ContentValues values = new ContentValues();
         values.put("id", id);
-        cordova.getActivity().getContentResolver().delete(contentUri,  "id = ?", new String[]{id});
+
+        try {
+
+            cordova.getActivity().getContentResolver().delete(contentUri,  "id = ?", new String[]{id});
         try {
             jo.put("return", "delete true");
         } catch (JSONException e) {
@@ -792,6 +823,13 @@ public class ContentProviderPlugin extends CordovaPlugin {
         }
 
 
+
+        }
+        catch(RemoteException e){
+            Log.e("CP","Error getting content provider");
+        }
+
+        
 
 
     }
@@ -915,29 +953,40 @@ public class ContentProviderPlugin extends CordovaPlugin {
         values.put("location", location);
 
         // Insert Data
+        //
 
-        JSONObject jo = new JSONObject();
-        if (update.equals("true")) {
-            // cordova.getActivity().getContentResolver().update(contentUri, values, "dt=?", new String[]{dt});
-            cordova.getActivity().getContentResolver().update(contentUri, values, "dt = ?", new String[]{dt});
-            try {
-                jo.put("return", "upadte true");
-            } catch (JSONException e) {
-                jo = null;
-            }
-        } else {
+        try {
 
-            values.put("dt", dt);
-            cordova.getActivity().getContentResolver().insert(contentUri, values);
-            try {
-                jo.put("return", "insertion true");
-            } catch (JSONException e) {
-                jo = null;
+
+            JSONObject jo = new JSONObject();
+            if (update.equals("true")) {
+                // cordova.getActivity().getContentResolver().update(contentUri, values, "dt=?", new String[]{dt});
+                cordova.getActivity().getContentResolver().update(contentUri, values, "dt = ?", new String[]{dt});
+                try {
+                    jo.put("return", "upadte true");
+                } catch (JSONException e) {
+                    jo = null;
+                }
+            } else {
+
+                values.put("dt", dt);
+                cordova.getActivity().getContentResolver().insert(contentUri, values);
+                try {
+                    jo.put("return", "insertion true");
+                } catch (JSONException e) {
+                    jo = null;
+                }
+
             }
+            JSONArray resultJSONArray = new JSONArray();
+            resultJSONArray.put(jo);
+            callback.success(resultJSONArray);
 
         }
-        JSONArray resultJSONArray = new JSONArray();
-        resultJSONArray.put(jo);
-        callback.success(resultJSONArray);
+        catch(RemoteException e){
+            Log.e("CP","Error getting content provider");
+        }
+
+
     }
 }
